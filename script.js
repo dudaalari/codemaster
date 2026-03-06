@@ -39,3 +39,18 @@ window.addEventListener('scroll', () => {
 
     // Adiciona um evento de clique a cada link de navegação
     navLinks.forEach(item => item.addEventListener ('click', activeLink));
+
+    //============================== ALTERNAR MODO CLARO/ESCURO =================
+    // função para alternar entre os temas claro e escuro
+    function toggleMode() {
+        const html = document.documentElement;
+        html.classList.toggle('light'); // Alterna a classe "light" no elemento HTML
+
+        //Salva o tema escolhido no localStorage
+        const mode = html.classList.contains ('light') ? 'light': 'dark';
+        localStorage.setItem('theme', mode);
+        
+        // Atualiza a cor do texto do título
+        updateTextColor ();
+    }
+    
